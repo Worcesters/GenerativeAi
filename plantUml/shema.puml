@@ -1,0 +1,40 @@
+
+        interface IDbConnection {
+          + execute()
+  + prepare($sql)
+  + clearBinding()
+  + bind($array)
+  + addbinding($array)
+  + selectDb($dbName)
+  + getBinding()
+  + getSql()
+  + close()
+  + getPreparedSqlData()
+  + getConnectionInformations()
+        }
+        
+        class PostgreConnection {
+          - pgconnection : mixed
+  - dsn : mixed
+  - host : mixed
+  - port : mixed
+  - user : mixed
+  - password : mixed
+  - dbName : mixed
+  - sql : mixed
+  - binding : mixed
+          + __construct($host,$port,$user,$password,$dbName,$pg_connection = null)
+  + getConnectionInformations()
+  + selectDb($dbName)
+  - connect()
+  + close()
+  + prepare($sql)
+  + clearBinding()
+  + bind($bind)
+  + addBinding($addBinding)
+  + getSql()
+  + getBinding()
+  + getPreparedSqlData()
+  + execute()
+        }
+        IDbConnection  <|.. PostgreConnection
